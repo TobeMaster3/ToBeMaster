@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.camper.mapper.DashboardMapper">
+
+    <!-- 내가 쓴 글 리스트 -->
+    <select id="writeList" parameterType="com.camper.model.UserDTO" resultType="com.camper.model.BoardTO">
+    	SELECT *
+    	FROM p_table
+    	WHERE
+    	NICK = #{nick}
+    </select>
+    
+    <!-- 내가 작성한 글 개수 -->
+    <select id="totalWrite" parameterType="com.camper.model.UserDTO" resultType="int">
+    	SELECT
+    	COUNT(*) 
+    	FROM p_table
+    	WHERE
+    	NICK = #{nick}
+    </select>
+   
+</mapper>
